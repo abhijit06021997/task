@@ -1,0 +1,14 @@
+1.Go to the downloads in windows ----
+2.copy this key and put on our desktop---
+3.locate your path for key ---
+4.your path here local'c'-user-admin-desktop--
+5.open the ubuntu apps as root login sudo -i
+6.cd /mnt/c/users/admin/desktop/
+7.then ls show your key in that directory
+8.chmod 600 'key' 
+9.copy the ssh client from your instance ssh client 
+10.paste here .
+11.now you log in as aws server user.
+12.sudo apt install nginx
+13.curl localhost
+14.or heat your public ip on browser.

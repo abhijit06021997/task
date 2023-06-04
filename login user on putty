@@ -1,0 +1,10 @@
+create instance with key .ppk
+open the putty
+enter your public ip in host
+select the +ssh+aut
+select credentials
+browse your .ppk key of your location 
+select open
+go to the terminal 
+enter your username 
+then you log in as user on putty

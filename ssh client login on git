@@ -1,0 +1,14 @@
+create instance with ubuntu image
+select key
+open the git bash
+cd downloads (where is your key)
+chmod 600 keyfile
+copy ssh client link 
+paste here
+login
+sudo apt install nginx
+systemctl status nginx
+curl localhost
+copy public ip
+heat on browser
+shown your nginx page

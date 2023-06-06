@@ -1,0 +1,18 @@
+create a instance with data configure like bootstrap script or config in aws cli nginx server
+allow http while creating instance 
+in user data bootstrap script
+#!/bin/bash
+yum update -y
+yum install nginx -y
+systemctl start nginx
+systemctl enable nginx
+echo <h1>"welcome to the my nginx server replect image"</h1> >/var/www/html/index.html  
+launched
+create image your instance though action--image and template---create image
+go to the it instance vollume and create snapshot it 
+go to the snapshot and create image from snapshot 
+go to the AMIS and select this volume --launceh instance from ami
+creating instance with selecting my amis and select image your instance and 
+http allow 
+create instance then your instance public ip copy and heat 
+then you see your instance first data or server config in your second instance heat

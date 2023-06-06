@@ -1,0 +1,20 @@
+create a instance 1st region 1 with included httpd config for e.g step below
+server name --key--http allow-write user data script or config just line open ssh-client --connect ec2-user
+yum install httpd
+systemctl start httpd
+systemctl enable httpd
+cd /var/www/html
+vim index.html ---insert--and enter
+<h1>welcome to the region1 ver </h1>--wq!
+curl localhost and heat ip on browser for testiing data ist region or instance
+then create instance....
+go to instance -select--action--create image and template------
+enter name any---in down enter add new tag option name in first box and copy above instance id and paste in value optional box
+create image
+go to the Ami ---select-----copy Ami---enter name---indown choose region2 where you copy
+then copy
+go to the where you copy Ami in region 
+select this Ami---launch from Ami instance 
+go to the 2nd region where are you launched instance
+then select instance---copy public id and heat in browser if you show 1st instance data config then 
+done ....

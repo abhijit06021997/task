@@ -1,0 +1,18 @@
+create 6 instances---allow httpd and httpd aplly data script as below
+#!/bin/bash
+yum update -y
+yum install httpd -y
+mkdir -p /var/www/html/home/
+echo "<h1>Hi welcome to home page (hostname -f)</h1>" >/var/www/html/home/index.html
+ systemctl start httpd 
+ systemctl enable httpd
+ change only directory like home--mobile ---laptop replace on home
+ fiest checkyour instance is corectly working on browser page
+ go to the targt group ----create target group---name tg--health check----enter in path /home/   --like as
+ next---select instance ---including pending ---create like all tg as .
+ go to the loadbalancer---create loadbalancer---name---mapping---az-subnet yuo chose as you need az .--save .
+open ALB--listener http to forward selct your target --create load balancer--
+open it --listener rule manage rule +add rule apply condition insert rule ---add conditio ---put it path---forword to g
+all rule apply below ---3rule 
+go the load balance see your created condition load balance --open it --
+copy Dns name and hea on browser

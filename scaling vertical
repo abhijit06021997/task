@@ -1,0 +1,3 @@
+----vertical---
+create instance --- launched-----stop instance
+action---instance setting --change instance type--t2.large

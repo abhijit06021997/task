@@ -1,0 +1,161 @@
+firs use command sudo amazon-linux-extras install epel -y
+sudo yum install s3fs-fuse -y
+[ec2-user@ip-172-31-94-86 ~]$ sudo -i
+[root@ip-172-31-94-86 ~]# ls
+passwd-s3fs
+[root@ip-172-31-94-86 ~]# ls /.
+abhijit  boot  etc   lib    local  mnt  proc  run   srv  tmp  var
+bin      dev   home  lib64  media  opt  root  sbin  sys  usr
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /abhijit -o passwd_file=${home}/.passwd-s3fs
+s3fs: unexpected error from stat(/.passwd-s3fs).
+[root@ip-172-31-94-86 ~]# mkdir abhijit1
+[root@ip-172-31-94-86 ~]# ls
+abhijit1  passwd-s3fs
+[root@ip-172-31-94-86 ~]# la
+-bash: la: command not found
+[root@ip-172-31-94-86 ~]# ls
+abhijit1  passwd-s3fs
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 abhijit1 -o passwd_file=${home}/.passwd-s3fs
+s3fs: unexpected error from stat(/.passwd-s3fs).
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /abhijit1 -o passwd_file=${home}/.passwd-s3fs
+s3fs: unable to access MOUNTPOINT /abhijit1: No such file or directory
+[root@ip-172-31-94-86 ~]# ls /
+abhijit  boot  etc   lib    local  mnt  proc  run   srv  tmp  var
+bin      dev   home  lib64  media  opt  root  sbin  sys  usr
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /abhijit -o passwd_file=${home}/.passwd-s3fs
+s3fs: unexpected error from stat(/.passwd-s3fs).
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /abhijit -o passwd_file=${home
+[root@ip-172-31-94-86 ~]# ls
+abhijit1  passwd-s3fs
+[root@ip-172-31-94-86 ~]# rm -rf abhijit1/
+[root@ip-172-31-94-86 ~]# ls
+passwd-s3fs
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /abhijit -o passwd_file=${home}/ .passwd-s3fs
+s3fs: specified unknown third option(.passwd-s3fs).
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /abhijit -o passwd_file=${home}/.passwd-s3fs
+s3fs: unexpected error from stat(/.passwd-s3fs).
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /abhijit -o passwd_file=${home}/.passwd-s3fs
+s3fs: unexpected error from stat(/.passwd-s3fs).
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /abhijit -o passwd_file=${home}/.passwd-s3fs ls
+s3fs: specified unknown third option(ls).
+[root@ip-172-31-94-86 ~]# ls
+passwd-s3fs
+[root@ip-172-31-94-86 ~]# rm -rf passwd-s3fs
+[root@ip-172-31-94-86 ~]# ls /
+abhijit  boot  etc   lib    local  mnt  proc  run   srv  tmp  var
+bin      dev   home  lib64  media  opt  root  sbin  sys  usr
+[root@ip-172-31-94-86 ~]# rm -rf abhijit
+[root@ip-172-31-94-86 ~]#
+[root@ip-172-31-94-86 ~]# ~ls /
+-bash: ~ls: command not found
+[root@ip-172-31-94-86 ~]# ls /
+abhijit  boot  etc   lib    local  mnt  proc  run   srv  tmp  var
+bin      dev   home  lib64  media  opt  root  sbin  sys  usr
+[root@ip-172-31-94-86 ~]# echo AKIA6LNEXN3HB7T2DISP:xWeSO0sdeVU7HUF5inKLgJJZv/26YIhj3Q9Jp1VL > ${home
+>
+> -bash: unexpected EOF while looking for matching `}'
+-bash: syntax error: unexpected end of file
+[root@ip-172-31-94-86 ~]# echo AKIA6LNEXN3HB7T2DISP:xWeSO0sdeVU7HUF5inKLgJJZv/26YIhj3Q9Jp1VL > ${home}/.newpasswordfile
+[root@ip-172-31-94-86 ~]# ls /
+abhijit  boot  etc   lib    local  mnt  proc  run   srv  tmp  var
+bin      dev   home  lib64  media  opt  root  sbin  sys  usr
+[root@ip-172-31-94-86 ~]# ls -la /root/
+total 28
+dr-xr-x---  3 root root 144 Jun 10 05:50 .
+dr-xr-xr-x 19 root root 296 Jun 10 05:58 ..
+-rw-------  1 root root 605 Jun 10 04:57 .bash_history
+-rw-r--r--  1 root root  18 Oct 18  2017 .bash_logout
+-rw-r--r--  1 root root 176 Oct 18  2017 .bash_profile
+-rw-r--r--  1 root root 176 Oct 18  2017 .bashrc
+-rw-r--r--  1 root root 100 Oct 18  2017 .cshrc
+-rw-------  1 root root  62 Jun 10 04:45 .passwd-s3fs
+drwx------  2 root root  29 Jun 10 04:23 .ssh
+-rw-r--r--  1 root root 129 Oct 18  2017 .tcshrc
+[root@ip-172-31-94-86 ~]# echo AKIA6LNEXN3HB7T2DISP:xWeSO0sdeVU7HUF5inKLgJJZv/26YIhj3Q9Jp1VL > ${HOME}/.newpasswordfile
+[root@ip-172-31-94-86 ~]# ls -la /root/
+total 32
+dr-xr-x---  3 root root 168 Jun 10 06:00 .
+dr-xr-xr-x 19 root root 296 Jun 10 05:58 ..
+-rw-------  1 root root 605 Jun 10 04:57 .bash_history
+-rw-r--r--  1 root root  18 Oct 18  2017 .bash_logout
+-rw-r--r--  1 root root 176 Oct 18  2017 .bash_profile
+-rw-r--r--  1 root root 176 Oct 18  2017 .bashrc
+-rw-r--r--  1 root root 100 Oct 18  2017 .cshrc
+-rw-r--r--  1 root root  62 Jun 10 06:00 .newpasswordfile
+-rw-------  1 root root  62 Jun 10 04:45 .passwd-s3fs
+drwx------  2 root root  29 Jun 10 04:23 .ssh
+-rw-r--r--  1 root root 129 Oct 18  2017 .tcshrc
+[root@ip-172-31-94-86 ~]# chmod 600 /root/.newpasswordfile
+[root@ip-172-31-94-86 ~]# mkdir /newmountpoint
+[root@ip-172-31-94-86 ~]# ls /
+abhijit  boot  etc   lib    local  mnt            opt   root  sbin  sys  usr
+bin      dev   home  lib64  media  newmountpoint  proc  run   srv   tmp  var
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /newmountpoint -o passwd_file={HOME}/.newpasswordfile
+s3fs: unexpected error from stat({HOME}/.newpasswordfile).
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /newmountpoint -o passwd_file={HOME}/.newpasswordfile
+s3fs: unexpected error from stat({HOME}/.newpasswordfile).
+[root@ip-172-31-94-86 ~]# mount | grep newmountpoint
+[root@ip-172-31-94-86 ~]#
+Network error: Software caused connection abort
+
+───────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <Return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+Authenticating with public key "Imported-Openssh-Key"
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v23.1 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to ec2-user@44.203.118.139                             │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✗  (disabled or not supported by server)      │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Last login: Sat Jun 10 05:41:19 2023 from 106.213.83.245
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+7 package(s) needed for security, out of 13 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-94-86 ~]$ sudo -i
+[root@ip-172-31-94-86 ~]# s3fs mount-ec21 /newmountpoint -o passwd_file=${HOME}/.newpasswordfile
+[root@ip-172-31-94-86 ~]# mount | grep newmount
+s3fs on /newmountpoint type fuse.s3fs (rw,nosuid,nodev,relatime,user_id=0,group_id=0)
+[root@ip-172-31-94-86 ~]# touch file{1..10}
+[root@ip-172-31-94-86 ~]#
+[root@ip-172-31-94-86 ~]# ls
+file1  file10  file2  file3  file4  file5  file6  file7  file8  file9
+[root@ip-172-31-94-86 ~]# cd /newmountpoint/
+[root@ip-172-31-94-86 newmountpoint]# touch file{1..50}
+[root@ip-172-31-94-86 newmountpoint]# ls
+file1   file17  file24  file31  file39  file46  file8
+file10  file18  file25  file32  file4   file47  file9
+file11  file19  file26  file33  file40  file48  IMG_20190901_094519.jpg
+file12  file2   file27  file34  file41  file49
+file13  file20  file28  file35  file42  file5
+file14  file21  file29  file36  file43  file50
+file15  file22  file3   file37  file44  file6
+file16  file23  file30  file38  file45  file7
+[root@ip-172-31-94-86 newmountpoint]# ls
+2021-07-07-20-04-51-127.jpg  file19  file29  file39  file49
+file1                        file2   file3   file4   file5
+file10                       file20  file30  file40  file50
+file11                       file21  file31  file41  file6
+file12                       file22  file32  file42  file7
+file13                       file23  file33  file43  file8
+file14                       file24  file34  file44  file9
+file15                       file25  file35  file45  IMG_20190901_094519.jpg
+file16                       file26  file36  file46
+file17                       file27  file37  file47
+file18                       file28  file38  file48
+[root@ip-172-31-94-86 newmountpoint]#

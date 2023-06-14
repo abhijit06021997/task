@@ -1,0 +1,19 @@
+create instance---launched 
+go to the vollume create vollume---select vollume -action---attached vollume--
+go to the instance --storage and check
+connect to ec2-user on cli
+lsblk
+for partition format vollume that you create
+fdisk /dev/xvdf
+create partition
+n---enter---defualt---first sector and last sector---elter the parttion
+lsblk (for check parttion created)
+make filesystem --mkfs /dev/xvdf1
+create directory for mount
+mkdir /mnt/dir1
+ls /mnt/
+now mount both
+mount /dev/xvdf1 /mnt/dir1
+for umount  --umount /dev/xvdfi /mnt/dir1
+
+
